@@ -21,6 +21,7 @@ const PostTeaser = props => {
         By {post.updatedBy} on {post.updatedDt}
       </div>
       <div style={{ marginTop: "6px" }}>{post.teaser}</div>
+      <a href={"/posts/" + post.id}>View post</a>
       <hr />
     </>
   );

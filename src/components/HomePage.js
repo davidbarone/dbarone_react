@@ -29,15 +29,15 @@ const HomePage = props => {
               <p>
                 <ul>
                   <li>
-                    I'm an interpreter who translates the language of data into
-                    the language of insights.
+                    I'm a translator. Speak to me in data - I'll reply with
+                    insights.
                   </li>
 
-                  <li>
-                    I'm an artist who paints by numbers. Business numbers.
-                  </li>
+                  <li>I'm an artist. Painting by numbers. Business numbers.</li>
 
-                  <li>Where people see data, I see sequel.</li>
+                  <li>I'm a data smith. Forging the figures every day.</li>
+
+                  <li>I see - you see - we all see sequel.</li>
 
                   <li>
                     Accountants like me because I compliment them on their Excel
@@ -51,15 +51,16 @@ const HomePage = props => {
 
                   <li>
                     Big data, AI, Predictive Analytics. These are all terms that
-                    I've heard other people say. Does that give me the right to
-                    wear a lab coat and call myself a data scientist?
+                    I've heard other people say. Now where's my labcoat?
                   </li>
 
                   <li>But above all - I'm a human.</li>
                 </ul>
               </p>
               <cite>
-                <a href="http://www.dbarone.com">Wise BI Sage</a>
+                <a href="http://www.dbarone.com">
+                  10th Century Gregorian Business Intelligence Chant
+                </a>
               </cite>
             </blockquote>
           </div>
@@ -71,21 +72,21 @@ const HomePage = props => {
             href="https://www.linkedin.com/in/david-barone-083aa05b/"
           >
             <FontAwesomeIcon
-              style={{ fontSize: 60, margin: "20px" }}
+              style={{ fontSize: 40, margin: "10px" }}
               icon={["fab", "linkedin"]}
             />
           </a>
 
           <a title="Github" href="https://github.com/davidbarone">
             <FontAwesomeIcon
-              style={{ fontSize: 60, margin: "20px" }}
+              style={{ fontSize: 40, margin: "10px" }}
               icon={["fab", "github"]}
             />
           </a>
 
           <a title="Mail" href="mailto:davidbarone@live.com">
             <FontAwesomeIcon
-              style={{ fontSize: 60, margin: "20px" }}
+              style={{ fontSize: 40, margin: "10px" }}
               icon="envelope-square"
             />
           </a>
