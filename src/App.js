@@ -6,7 +6,7 @@ import HomePage from "./components/HomePage";
 import SearchPage from "./components/SearchPage";
 import AdminPage from "./components/AdminPage";
 import AccountManagement from "./components/AccountManagement";
-import ViewPost from "./components/ViewPost";
+import SinglePost from "./components/SinglePost";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -44,7 +44,7 @@ const MainMenu = () => {
 function ViewPostX({ match }) {
   return (
     <>
-      <ViewPost id={match.params.id} />
+      <SinglePost id={match.params.id} />
     </>
   );
 }

@@ -16,12 +16,13 @@ const PostTeaser = props => {
 
   return (
     <>
-      <h2>{post.title}</h2>
+      <h2>
+        <a href={"/posts/" + post.id}>{post.title}</a>
+      </h2>
       <div style={{ color: "#999", fontSize: "0.8em" }}>
         By {post.updatedBy} on {post.updatedDt}
       </div>
       <div style={{ marginTop: "6px" }}>{post.teaser}</div>
-      <a href={"/posts/" + post.id}>View post</a>
       <hr />
     </>
   );
