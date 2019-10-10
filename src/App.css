@@ -183,10 +183,18 @@ form p {
   margin-top: 9px;
 }
 
+label > input {
+  display: block;
+}
+
 label,
 legend {
-  display: block;
   font-weight: 600;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
 }
 
 fieldset {
@@ -376,4 +384,8 @@ blockquote cite {
 
 blockquote cite:before {
   content: "\2014 \2009";
+}
+
+.full-width {
+  width: 100%;
 }

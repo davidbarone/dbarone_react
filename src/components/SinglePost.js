@@ -5,7 +5,7 @@ import EditPost from "./EditPost";
 class SinglePost extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { post: {}, isEditMode: false };
+    this.state = { post: {}, mode: "VIEW" };
   }
 
   componentDidMount() {
@@ -16,31 +16,23 @@ class SinglePost extends React.Component {
       });
   }
 
-  toggleEditMode() {
-    alert("here");
-    var a = this.isEditMode;
-    this.setState({ isEditMode: !a });
-  }
+  setMode = mode => {
+    this.setState({ mode: mode });
+  };
 
   render() {
     // view or edit
     let postComponent = null;
-    if (this.state.isEditMode)
+    if (this.state.mode === "EDIT")
       postComponent = (
-        <EditPost post={this.state.post} toggleEditMode={this.toggleEditMode} />
+        <EditPost post={this.state.post} setMode={this.setMode} />
       );
-    else
+    else if (this.state.mode === "VIEW")
       postComponent = (
-        <ViewPost post={this.state.post} toggleEditMode={this.toggleEditMode} />
+        <ViewPost post={this.state.post} setMode={this.setMode} />
       );
 
-    return (
-      <>
-        XXX
-        <div>{this.state.isEditMode === true ? "TRUE" : "FALSE"}</div>XXX
-        {postComponent}
-      </>
-    );
+    return [postComponent];
   }
 }
 

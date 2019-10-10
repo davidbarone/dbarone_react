@@ -1,11 +1,7 @@
 import React from "react";
+import moment from "moment";
 
 class ViewPost extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { post: {} };
-  }
-
   async componentDidMount() {
     // Add script if any
     if (this.props.post.script) {
@@ -20,20 +16,19 @@ class ViewPost extends React.Component {
     }
   }
 
+  handleEditPost = event => {
+    this.props.setMode("EDIT");
+  };
+
   render() {
     return (
       <div ref={el => (this.div = el)}>
         <h2>{this.props.post.title}</h2>
         <div style={{ color: "#999", fontSize: "0.8em" }}>
-          By {this.props.post.updatedBy} on {this.props.post.updatedDt}
+          By {this.props.post.updatedBy} on{" "}
+          {moment(this.props.post.updatedDt).format("LLLL")}
           <span>
-            <button
-              onClick={() => {
-                alert("test");
-              }}
-            >
-              Edit
-            </button>
+            <button onClick={this.handleEditPost}>Edit</button>
           </span>
         </div>
         <div

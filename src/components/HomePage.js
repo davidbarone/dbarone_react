@@ -37,8 +37,6 @@ const HomePage = props => {
 
                   <li>I'm a data smith. Forging the figures every day.</li>
 
-                  <li>I see - you see - we all see sequel.</li>
-
                   <li>
                     Accountants like me because I compliment them on their Excel
                     skills.
@@ -50,17 +48,16 @@ const HomePage = props => {
                   </li>
 
                   <li>
-                    Big data, AI, Predictive Analytics. These are all terms that
-                    I've heard other people say. Now where's my labcoat?
+                    Big Data, AI, Predictive Analytics. These are all terms that
+                    I've heard other people say. When I figure out what they
+                    mean, I'm ordering my labcoat.
                   </li>
 
                   <li>But above all - I'm a human.</li>
                 </ul>
               </p>
               <cite>
-                <a href="http://www.dbarone.com">
-                  10th Century Gregorian Business Intelligence Chant
-                </a>
+                <a href="http://www.dbarone.com">BI Guy</a>
               </cite>
             </blockquote>
           </div>
