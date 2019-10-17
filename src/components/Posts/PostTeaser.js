@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-const PostTeaser = props => {
+const PostTeaser = ({ id }) => {
   const [post, setPost] = useState([]);
   const [hasError, setErrors] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await fetch(`http://localhost:5000/api/posts/${props.id}`);
+      const res = await fetch(`http://localhost:5000/api/posts/${id}`);
       const post = await res.json();
       setPost(post);
     };
 
     fetchPost();
-  }, [props.id]);
+  }, [id]);
 
   return (
     <>

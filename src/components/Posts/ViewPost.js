@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import marked from "marked";
 
 class ViewPost extends React.Component {
   async componentDidMount() {
@@ -20,20 +21,28 @@ class ViewPost extends React.Component {
     this.props.setMode("EDIT");
   };
 
+  content() {
+    if (this.props.post.posttype === "MARKDOWN") {
+      return marked(this.props.post.content);
+    } else {
+      return this.props.post.content;
+    }
+  }
+
   render() {
+    const { post, setMode } = this.props;
     return (
       <div ref={el => (this.div = el)}>
-        <h2>{this.props.post.title}</h2>
+        <h2>{post.title}</h2>
         <div style={{ color: "#999", fontSize: "0.8em" }}>
-          By {this.props.post.updatedBy} on{" "}
-          {moment(this.props.post.updatedDt).format("LLLL")}
+          By {post.updatedBy} on {moment(post.updatedDt).format("LLLL")}
           <span>
             <button onClick={this.handleEditPost}>Edit</button>
           </span>
         </div>
         <div
           style={{ marginTop: "6px" }}
-          dangerouslySetInnerHTML={{ __html: this.props.post.content }}
+          dangerouslySetInnerHTML={{ __html: this.content() }}
         ></div>
         {/* script inserted here */}
       </div>

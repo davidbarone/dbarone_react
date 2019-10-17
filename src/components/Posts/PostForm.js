@@ -1,25 +1,24 @@
 import React from "react";
 
-class EditPost extends React.Component {
+class PostForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.post);
 
     this.titleField = React.createRef();
-
     this.teaserField = React.createRef();
     this.contentField = React.createRef();
-    this.contentTypeField = React.createRef();
-    this.statusField = React.createRef();
-
+    this.postTypeField = React.createRef();
     this.headField = React.createRef();
     this.codeField = React.createRef();
     this.styleField = React.createRef();
-
     this.parentIdField = React.createRef();
+    this.deletedField = React.createRef();
   }
 
-  handleViewPost = event => {
+  handleCancelEdit = event => {
+    this.props.setMode("VIEW");
+  };
+  handleSaveEdit = event => {
     this.props.setMode("VIEW");
   };
 
@@ -28,7 +27,10 @@ class EditPost extends React.Component {
       <>
         <form>
           <fieldset>
-            <legend>Edit Post</legend>
+            <legend>Edit / Create Post</legend>
+
+            <button onClick={this.handleCancelEdit}>Save</button>
+            <button onClick={this.handleSaveEdit}>Cancel</button>
 
             <label>Title:</label>
             <input
@@ -54,22 +56,13 @@ class EditPost extends React.Component {
               defaultValue={this.props.post.content}
             ></textarea>
 
-            <label>Content Type:</label>
+            <label>Post Type:</label>
             <select
-              ref={this.contentTypeField}
-              defaultValue={this.props.post.contentType}
+              ref={this.postTypeField}
+              defaultValue={this.props.post.posttype}
             >
               <option>HTML</option>
               <option>MARKDOWN</option>
-            </select>
-
-            <label>Status:</label>
-            <select
-              ref={this.statusField}
-              defaultValue={this.props.post.status}
-            >
-              <option>Published</option>
-              <option>Draft</option>
             </select>
 
             <label>Head:</label>
@@ -100,15 +93,13 @@ class EditPost extends React.Component {
             <input
               type="text"
               ref={this.parentIdField}
-              defaultValue={this.props.post.parentId}
+              defaultValue={this.props.post.parentid}
             ></input>
           </fieldset>
         </form>
-        XXXX{this.teaserField.value}XXX
-        <button onClick={this.handleViewPost}>Cancel</button>
       </>
     );
   }
 }
 
-export default EditPost;
+export default PostForm;

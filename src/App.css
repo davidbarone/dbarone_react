@@ -34,7 +34,6 @@ header {
 main {
   margin-top: 40px;
   flex: auto;
-  margin-bottom: 40px;
 }
 
 header a {
@@ -51,10 +50,8 @@ header a:hover {
 }
 
 footer {
-  position: fixed;
   background: #eee;
-  bottom: 0px;
-  height: 40px;
+  min-height: 40px;
   width: 100%;
   font-size: x-small;
   text-align: center;

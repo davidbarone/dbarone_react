@@ -1,12 +1,12 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import ListPosts from "./components/ListPosts";
+import ListPosts from "./components/Posts/ListPosts";
 import HomePage from "./components/HomePage";
 import SearchPage from "./components/SearchPage";
 import AdminPage from "./components/AdminPage";
 import AccountManagement from "./components/AccountManagement";
-import SinglePost from "./components/SinglePost";
+import SinglePost from "./components/Posts/SinglePost";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
