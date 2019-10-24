@@ -56,13 +56,22 @@ function App() {
         <header>
           <MainMenu />
         </header>
-        <main style={{ padding: "20px" }}>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/posts" component={ListPosts} />
-          <Route path="/posts/:id" component={ViewPostX} />
-          <Route exact path="/search" component={SearchPage} />
-          <Route exact path="/account" component={AccountManagement} />
-          <Route exact path="/admin" component={AdminPage} />
+        <main style={{ padding: "0px" }}>
+          <div
+            style={{
+              border: "solid #ccc 1px",
+              borderRadius: "12px",
+              background: "white",
+              padding: "8px"
+            }}
+          >
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/posts" component={ListPosts} />
+            <Route path="/posts/:id" component={ViewPostX} />
+            <Route exact path="/search" component={SearchPage} />
+            <Route exact path="/account" component={AccountManagement} />
+            <Route exact path="/admin" component={AdminPage} />
+          </div>
         </main>
         <footer>XXX</footer>
       </div>

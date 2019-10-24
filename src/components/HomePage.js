@@ -28,10 +28,7 @@ const HomePage = props => {
             <blockquote cite="http://www.dbarone.com/">
               <p>
                 <ul>
-                  <li>
-                    I'm a translator. Speak to me in data - I'll reply with
-                    insights.
-                  </li>
+                  <li>I'm a translator. Translating data into insights.</li>
 
                   <li>I'm an artist. Painting by numbers. Business numbers.</li>
 
@@ -47,11 +44,7 @@ const HomePage = props => {
                     look good when everyone else is using German ERP software.
                   </li>
 
-                  <li>
-                    Big Data, AI, Predictive Analytics. These are all terms that
-                    I've heard other people say. When I figure out what they
-                    mean, I'm ordering my labcoat.
-                  </li>
+                  <li>Big Data. what is it? I dunno.</li>
 
                   <li>But above all - I'm a human.</li>
                 </ul>

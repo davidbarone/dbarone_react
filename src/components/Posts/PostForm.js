@@ -1,9 +1,10 @@
 import React from "react";
+import moment from "moment";
 
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
-
+    this.id = props.post.id;
     this.titleField = React.createRef();
     this.teaserField = React.createRef();
     this.contentField = React.createRef();
@@ -12,88 +13,111 @@ class PostForm extends React.Component {
     this.codeField = React.createRef();
     this.styleField = React.createRef();
     this.parentIdField = React.createRef();
+    this.publishedDtField = React.createRef();
     this.deletedField = React.createRef();
   }
 
-  handleCancelEdit = event => {
+  getPostObject = () => {
+    return {
+      id: this.id,
+      title: this.titleField.current.value,
+      teaser: this.teaserField.current.value,
+      content: this.contentField.current.value,
+      posttype: this.postTypeField.current.value,
+      head: this.headField.current.value,
+      code: this.codeField.current.value,
+      style: this.styleField.current.value,
+      parentid: this.parentIdField.current.value || undefined,
+      publisheddt: this.publishedDtField.current.value || moment(),
+      deleted: this.deletedField.current.value || false
+    };
+  };
+
+  XXXhandleCancelEdit = event => {
     this.props.setMode("VIEW");
   };
-  handleSaveEdit = event => {
-    this.props.setMode("VIEW");
+  handleSave = e => {
+    const post = this.getPostObject();
+    this.props.onSave(post, e);
+    e.preventDefault();
   };
 
   render() {
+    const { post, onSave, onCancel } = this.props || {};
+
     return (
       <>
         <form>
           <fieldset>
             <legend>Edit / Create Post</legend>
-
-            <button onClick={this.handleCancelEdit}>Save</button>
-            <button onClick={this.handleSaveEdit}>Cancel</button>
-
+            <button onClick={this.handleSave}>Save</button>
+            <button onClick={onCancel}>Cancel</button>
             <label>Title:</label>
             <input
               className="full-width"
               type="text"
               ref={this.titleField}
-              defaultValue={this.props.post.title}
+              defaultValue={post.title}
             ></input>
-
             <label>Teaser:</label>
             <textarea
               className="full-width"
               rows="3"
               ref={this.teaserField}
-              defaultValue={this.props.post.teaser}
+              defaultValue={post.teaser}
             ></textarea>
-
             <label>Content:</label>
             <textarea
               className="full-width"
               rows="8"
               ref={this.contentField}
-              defaultValue={this.props.post.content}
+              defaultValue={post.content}
             ></textarea>
-
             <label>Post Type:</label>
-            <select
-              ref={this.postTypeField}
-              defaultValue={this.props.post.posttype}
-            >
+            <select ref={this.postTypeField} defaultValue={post.posttype}>
               <option>HTML</option>
               <option>MARKDOWN</option>
             </select>
-
             <label>Head:</label>
             <textarea
               className="full-width"
               rows="3"
               ref={this.headField}
-              defaultValue={this.props.post.head}
+              defaultValue={post.head}
             ></textarea>
-
             <label>Code:</label>
             <textarea
               className="full-width"
               rows="8"
               ref={this.codeField}
-              defaultValue={this.props.post.code}
+              defaultValue={post.code}
             ></textarea>
-
             <label>Style:</label>
             <textarea
               className="full-width"
               rows="8"
               ref={this.styleField}
-              defaultValue={this.props.post.style}
+              defaultValue={post.style}
             ></textarea>
-
+            <label>Published Date:</label>
+            <input
+              type="date"
+              ref={this.publishedDtField}
+              defaultValue={new Date(post.publisheddt)
+                .toISOString()
+                .substr(0, 10)}
+            ></input>
             <label>Parent ID:</label>
             <input
               type="text"
               ref={this.parentIdField}
-              defaultValue={this.props.post.parentid}
+              defaultValue={post.parentid}
+            ></input>
+            <label>Deleted:</label>
+            <input
+              type="checkbox"
+              ref={this.deletedField}
+              defaultValue={post.deleted}
             ></input>
           </fieldset>
         </form>

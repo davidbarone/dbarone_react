@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 
 const PostTeaser = ({ id }) => {
   const [post, setPost] = useState([]);
@@ -20,7 +21,7 @@ const PostTeaser = ({ id }) => {
         <a href={"/posts/" + post.id}>{post.title}</a>
       </h2>
       <div style={{ color: "#999", fontSize: "0.8em" }}>
-        By {post.updatedBy} on {post.updatedDt}
+        By {post.updatedby} on {moment(post.updatedDt).format("LLLL")}
       </div>
       <div style={{ marginTop: "6px" }}>{post.teaser}</div>
       <hr />

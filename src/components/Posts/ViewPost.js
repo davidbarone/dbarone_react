@@ -5,15 +5,17 @@ import marked from "marked";
 class ViewPost extends React.Component {
   async componentDidMount() {
     // Add script if any
-    if (this.props.post.script) {
+    console.log(this.props.post);
+    if (this.props.post.code) {
+      alert("xxx");
       const script = document.createElement("script");
       script.async = true;
-      script.src = this.props.post.script;
+      script.src = this.props.post.code;
       this.div.appendChild(script);
     }
     // Add any includes if any
     if (this.props.post.head) {
-      console.log(this.props.post.head);
+      document.head.appendChild(this.props.post.head);
     }
   }
 
@@ -31,6 +33,7 @@ class ViewPost extends React.Component {
 
   render() {
     const { post, setMode } = this.props;
+    this.componentDidMount();
     return (
       <div ref={el => (this.div = el)}>
         <h2>{post.title}</h2>
