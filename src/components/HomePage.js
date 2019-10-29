@@ -24,33 +24,29 @@ const HomePage = props => {
             ></img>
           </div>
 
-          <div style={{ width: "60%", display: "inline-block" }}>
+          <div
+            style={{
+              width: "60%",
+              display: "inline-block",
+              fontSize: "x-large"
+            }}
+          >
             <blockquote cite="http://www.dbarone.com/">
               <p>
-                <ul>
-                  <li>I'm a translator. Translating data into insights.</li>
-
-                  <li>I'm an artist. Painting by numbers. Business numbers.</li>
-
-                  <li>I'm a data smith. Forging the figures every day.</li>
-
-                  <li>
-                    Accountants like me because I compliment them on their Excel
-                    skills.
-                  </li>
-
-                  <li>
-                    I love working with complex organisations as it's easy to
-                    look good when everyone else is using German ERP software.
-                  </li>
-
-                  <li>Big Data. what is it? I dunno.</li>
-
-                  <li>But above all - I'm a human.</li>
-                </ul>
+                People always ask me 'How have you made the Business
+                Intelligence community a better place?'. I tell them 'I'm good
+                with colors. I use a lot of them in my charts. Accountants like
+                me because I compliment them on their Excel skills. I love
+                working with complex organisations as it's easy to look good
+                when everyone else is using German ERP software. If you talk
+                about Big Data, I'll smile at you like I understand what you're
+                talking about, but above all, I've put the humanity back into
+                BI.
               </p>
               <cite>
-                <a href="http://www.dbarone.com">BI Guy</a>
+                <a href="http://www.dbarone.com">
+                  David Barone (Job interview in 2003).
+                </a>
               </cite>
             </blockquote>
           </div>
