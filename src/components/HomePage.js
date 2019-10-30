@@ -37,16 +37,14 @@ const HomePage = props => {
                 Intelligence community a better place?'. I tell them 'I'm good
                 with colors. I use a lot of them in my charts. Accountants like
                 me because I compliment them on their Excel skills. I love
-                working with complex organisations as it's easy to look good
-                when everyone else is using German ERP software. If you talk
-                about Big Data, I'll smile at you like I understand what you're
-                talking about, but above all, I've put the humanity back into
+                working with complex organisations because German ERP software
+                brings the best out in me. If you talk about Big Data, I'll
+                smile at you like I pretend to know what you're talking about,
+                but above all, I've put the humanity (and sexuality) back into
                 BI.
               </p>
               <cite>
-                <a href="http://www.dbarone.com">
-                  David Barone (Job interview in 2003).
-                </a>
+                <a href="http://www.dbarone.com">David Barone</a>
               </cite>
             </blockquote>
           </div>

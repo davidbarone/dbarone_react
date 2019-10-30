@@ -315,6 +315,10 @@ blockquote cite:before {
   content: "\2014 \2009";
 }
 
+blockquote a {
+  text-decoration: none;
+}
+
 .full-width {
   width: 100%;
 }
