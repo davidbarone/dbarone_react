@@ -7,6 +7,9 @@ import SearchPage from "./components/SearchPage";
 import AdminPage from "./components/AdminPage";
 import AccountManagement from "./components/AccountManagement";
 import SinglePost from "./components/Posts/SinglePost";
+import LoginPage from "./components/Login/LoginPage";
+import LogoutPage from "./components/Login/LogoutPage";
+import UserInfo from "./components/Login/UserInfo";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -55,6 +58,9 @@ function App() {
       <div className="app">
         <header>
           <MainMenu />
+          <span style={{ position: "absolute", right: "0px" }}>
+            <UserInfo />
+          </span>
         </header>
         <main>
           <Route exact path="/" component={HomePage} />
@@ -63,6 +69,8 @@ function App() {
           <Route exact path="/search" component={SearchPage} />
           <Route exact path="/account" component={AccountManagement} />
           <Route exact path="/admin" component={AdminPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/logout" component={LogoutPage} />
         </main>
         <footer>XXX</footer>
       </div>

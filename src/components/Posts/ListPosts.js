@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PostTeaser from "./PostTeaser";
+import AuthService from "../../services/AuthService";
 
 const ListPosts = props => {
   const [posts, setPosts] = useState([]);
   const [hasError, setErrors] = useState(false);
 
   async function fetchPosts() {
-    const res = await fetch("http://localhost:5000/api/posts");
+    const res = await fetch("http://localhost:5000/api/posts", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${AuthService.getToken()}`
+      }
+    });
     console.log(res);
     res
       .json()

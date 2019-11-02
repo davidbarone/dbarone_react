@@ -9,11 +9,11 @@ const HomePage = props => {
           padding: "80px"
         }}
       >
-        <div>
+        <div style={{ margin: "auto", width: "1280px" }}>
           <div
             style={{
               display: "inline-block",
-              width: "40%",
+              width: "400px",
               textAlign: "center"
             }}
           >
@@ -26,7 +26,7 @@ const HomePage = props => {
 
           <div
             style={{
-              width: "60%",
+              width: "880px",
               display: "inline-block",
               fontSize: "x-large"
             }}

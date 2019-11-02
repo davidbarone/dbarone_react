@@ -27,22 +27,23 @@ div.app {
 header {
   position: fixed;
   top: 0px;
-  height: 40px;
+  height: 60px;
+  box-sizing: border-box;
   width: 100%;
   background: #252525;
   border-bottom: 1px solid #383838;
 }
 
 main {
-  margin-top: 40px;
+  margin-top: 60px;
   flex: auto;
   padding: 0px 120px;
 }
 
 header a {
   float: left;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   padding: 0px 16px;
 }
 
