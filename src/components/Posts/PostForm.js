@@ -23,19 +23,20 @@ class PostForm extends React.Component {
       title: this.titleField.current.value,
       teaser: this.teaserField.current.value,
       content: this.contentField.current.value,
-      posttype: this.postTypeField.current.value,
+      post_type: this.postTypeField.current.value,
       head: this.headField.current.value,
       code: this.codeField.current.value,
       style: this.styleField.current.value,
-      parentid: this.parentIdField.current.value || undefined,
-      publisheddt: this.publishedDtField.current.value || moment(),
-      deleted: this.deletedField.current.value || false
+      parent_id: this.parentIdField.current.value || undefined,
+      published_dt: new Date(this.publishedDtField.current.value) || moment(),
+      deleted: false // this.deletedField.current.value || false
     };
   };
 
-  XXXhandleCancelEdit = event => {
+  handleCancelEdit = event => {
     this.props.setMode("VIEW");
   };
+
   handleSave = e => {
     const post = this.getPostObject();
     this.props.onSave(post, e);
@@ -74,7 +75,7 @@ class PostForm extends React.Component {
               defaultValue={post.content}
             ></textarea>
             <label>Post Type:</label>
-            <select ref={this.postTypeField} defaultValue={post.posttype}>
+            <select ref={this.postTypeField} defaultValue={post.post_type}>
               <option>HTML</option>
               <option>MARKDOWN</option>
             </select>
@@ -103,7 +104,7 @@ class PostForm extends React.Component {
             <input
               type="date"
               ref={this.publishedDtField}
-              defaultValue={new Date(post.publisheddt)
+              defaultValue={new Date(post.published_dt)
                 .toISOString()
                 .substr(0, 10)}
             ></input>
@@ -111,7 +112,7 @@ class PostForm extends React.Component {
             <input
               type="text"
               ref={this.parentIdField}
-              defaultValue={post.parentid}
+              defaultValue={post.parent_id}
             ></input>
             <label>Deleted:</label>
             <input

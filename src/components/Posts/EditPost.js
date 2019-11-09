@@ -1,19 +1,26 @@
 import React from "react";
 import PostForm from "./PostForm";
+import AuthService from "../../services/AuthService";
 
 class EditPost extends React.Component {
   handleCancel = event => {
     this.props.setMode("VIEW");
   };
   handleSave = async (post, e) => {
+    const token = AuthService.getToken();
     // Save post
-    const res = await fetch(`http://localhost:5000/api/posts/${post.id}`, {
+    fetch(`https://api.dbarone.com/posts/${post.id}`, {
       method: "PUT",
       body: JSON.stringify(post),
-      headers: { "Content-Type": "application/json" }
-    });
-    // Navigate to post
-    window.location = `/posts/${post.id}`;
+      headers: { "Content-Type": "application/json", Authorization: token }
+    })
+      .then(res => {
+        // Navigate to post
+        window.location = `/posts/${post.id}`;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {

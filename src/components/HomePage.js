@@ -31,7 +31,7 @@ const HomePage = props => {
               fontSize: "x-large"
             }}
           >
-            <blockquote cite="http://www.dbarone.com/">
+            <blockquote cite="https://www.dbarone.com/">
               <p>
                 People always ask me 'How have you made the Business
                 Intelligence community a better place?'. I tell them 'I'm good
@@ -44,7 +44,7 @@ const HomePage = props => {
                 BI.
               </p>
               <cite>
-                <a href="http://www.dbarone.com">David Barone</a>
+                <a href="https://www.dbarone.com">David Barone</a>
               </cite>
             </blockquote>
           </div>

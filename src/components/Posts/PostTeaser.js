@@ -7,7 +7,7 @@ const PostTeaser = ({ id }) => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const res = await fetch(`http://localhost:5000/api/posts/${id}`);
+      const res = await fetch(`https://api.dbarone.com/posts/${id}`);
       const post = await res.json();
       setPost(post);
     };
