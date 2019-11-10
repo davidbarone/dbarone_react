@@ -65,7 +65,7 @@ async function login(email, password) {
     password
   };
 
-  fetch("https://api.dbarone.com/users/login", {
+  fetch(`${process.env.REACT_APP_API_ROOT}/users/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

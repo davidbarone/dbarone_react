@@ -67,7 +67,10 @@ class PostForm extends React.Component {
               ref={this.teaserField}
               defaultValue={post.teaser}
             ></textarea>
-            <label>Content:</label>
+            <label>
+              Content (Note no executable code here. Put scripts in head or
+              code):
+            </label>
             <textarea
               className="full-width"
               rows="8"
@@ -79,19 +82,25 @@ class PostForm extends React.Component {
               <option>HTML</option>
               <option>MARKDOWN</option>
             </select>
-            <label>Head:</label>
+            <label>
+              Head (Script links to external files and other CSS links etc):
+            </label>
             <textarea
               className="full-width"
               rows="3"
               ref={this.headField}
               defaultValue={post.head}
             ></textarea>
-            <label>Code:</label>
+            <label>
+              Code (Inline JS without the script tag - just the JS code):
+            </label>
             <textarea
               className="full-width"
               rows="8"
               ref={this.codeField}
               defaultValue={post.code}
+              placeholder="const hello_world = 'hello world!';
+alert(hello_world);"
             ></textarea>
             <label>Style:</label>
             <textarea
@@ -104,7 +113,7 @@ class PostForm extends React.Component {
             <input
               type="date"
               ref={this.publishedDtField}
-              defaultValue={new Date(post.published_dt)
+              defaultValue={new Date(post.published_dt || moment())
                 .toISOString()
                 .substr(0, 10)}
             ></input>

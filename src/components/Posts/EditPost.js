@@ -9,7 +9,7 @@ class EditPost extends React.Component {
   handleSave = async (post, e) => {
     const token = AuthService.getToken();
     // Save post
-    fetch(`https://api.dbarone.com/posts/${post.id}`, {
+    fetch(`${process.env.REACT_APP_API_ROOT}/posts/${post.id}`, {
       method: "PUT",
       body: JSON.stringify(post),
       headers: { "Content-Type": "application/json", Authorization: token }

@@ -7,7 +7,7 @@ const ListPosts = props => {
   const [hasError, setErrors] = useState(false);
 
   async function fetchPosts() {
-    const res = await fetch("https://api.dbarone.com/posts", {
+    const res = await fetch(`${process.env.REACT_APP_API_ROOT}/posts`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${AuthService.getToken()}`

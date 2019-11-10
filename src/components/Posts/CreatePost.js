@@ -1,5 +1,6 @@
 import React from "react";
 import PostForm from "./PostForm";
+import AuthService from "../../services/AuthService";
 
 class CreatePost extends React.Component {
   handleCancel = event => {
@@ -7,13 +8,19 @@ class CreatePost extends React.Component {
   };
   handleSave = async (post, event) => {
     // Save post
-    const res = await fetch("https://api.dbarone.com/posts", {
+    console.log(post);
+    const res = await fetch(`${process.env.REACT_APP_API_ROOT}/posts`, {
       method: "POST",
       body: JSON.stringify(post),
-      headers: { "Content-Type": "application/json" }
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: AuthService.getToken()
+      }
     });
-    const json = await res.json();
-    this.props.setMode("VIEW");
+    const newPost = await res.json();
+    console.log(newPost);
+    // Navigate to post
+    window.location = `/posts/${newPost.id}`;
   };
 
   render() {

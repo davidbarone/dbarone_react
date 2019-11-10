@@ -12,7 +12,7 @@ class SinglePost extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.dbarone.com/posts/${this.props.id}`)
+    fetch(`${process.env.REACT_APP_API_ROOT}/posts/${this.props.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({ post: data });
