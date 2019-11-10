@@ -63,14 +63,16 @@ function App() {
           </span>
         </header>
         <main>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/posts" component={ListPosts} />
-          <Route path="/posts/:id" component={ViewPostX} />
-          <Route exact path="/search" component={SearchPage} />
-          <Route exact path="/account" component={AccountManagement} />
-          <Route exact path="/admin" component={AdminPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/logout" component={LogoutPage} />
+          <div style={{ width: "1366px", margin: "0px auto" }}>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/posts" component={ListPosts} />
+            <Route path="/posts/:id" component={ViewPostX} />
+            <Route exact path="/search" component={SearchPage} />
+            <Route exact path="/account" component={AccountManagement} />
+            <Route exact path="/admin" component={AdminPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/logout" component={LogoutPage} />
+          </div>
         </main>
         <footer>XXX</footer>
       </div>

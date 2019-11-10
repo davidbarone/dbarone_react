@@ -21,7 +21,7 @@ const PostTeaser = ({ id }) => {
         <a href={"/posts/" + post.id}>{post.title}</a>
       </h4>
       <div style={{ color: "#999", fontSize: "0.8em" }}>
-        By {post.updatedby} on {moment(post.updatedDt).format("LLLL")}
+        By {post.updated_by} on {moment(post.updated_dt).format("LLLL")}
       </div>
       <div style={{ marginTop: "6px" }}>{post.teaser}</div>
       <hr />

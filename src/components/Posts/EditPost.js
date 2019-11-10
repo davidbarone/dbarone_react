@@ -1,6 +1,7 @@
 import React from "react";
 import PostForm from "./PostForm";
 import AuthService from "../../services/AuthService";
+import { Redirect } from "react-router-dom";
 
 class EditPost extends React.Component {
   handleCancel = event => {
@@ -26,7 +27,11 @@ class EditPost extends React.Component {
   render() {
     const { post, setMode } = this.props;
 
-    return <PostForm post={post} onSave={this.handleSave} />;
+    return AuthService.getUserRole() === "admin" ? (
+      <PostForm post={post} onSave={this.handleSave} />
+    ) : (
+      <Redirect to="/login" />
+    );
   }
 }
 

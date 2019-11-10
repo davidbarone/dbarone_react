@@ -76,7 +76,9 @@ class LoginPage extends React.Component {
             )}
           </div>
           <div>
-            <button disabled={loading}>Login</button>
+            <button class="button primary" disabled={loading}>
+              Login
+            </button>
           </div>
           {error && <div>{error}</div>}
         </form>

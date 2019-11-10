@@ -41,6 +41,12 @@ function getUser() {
   return user;
 }
 
+function getUserRole() {
+  const user = getUser();
+  const role = user && user.role;
+  return role;
+}
+
 function loggedIn() {
   // Checks if there is a saved token and it's still valid
   const token = getToken(); // GEtting token from localstorage
@@ -89,6 +95,7 @@ export default {
   login,
   logout,
   getUser,
+  getUserRole,
   getToken,
   loggedIn
 };

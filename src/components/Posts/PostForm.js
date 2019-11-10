@@ -27,7 +27,7 @@ class PostForm extends React.Component {
       head: this.headField.current.value,
       code: this.codeField.current.value,
       style: this.styleField.current.value,
-      parent_id: this.parentIdField.current.value || undefined,
+      parent_id: parseInt(this.parentIdField.current.value) || undefined,
       published_dt: new Date(this.publishedDtField.current.value) || moment(),
       deleted: false // this.deletedField.current.value || false
     };

@@ -37,7 +37,7 @@ header {
 main {
   margin-top: 60px;
   flex: auto;
-  padding: 0px 120px;
+  padding: 0px;
 }
 
 header a {
@@ -203,6 +203,63 @@ form input[type="checkbox"] + * {
   margin-right: 20px;
 }
 
+/* ----------------------------------
+ Buttons
+------------------------------------- */
+
+.button {
+  display: inline-block;
+  height: 30px;
+  padding: 0 20px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button:hover,
+.button:focus {
+  color: #333;
+  background-color: #ccc;
+  border-color: #888;
+  outline: 0;
+}
+
+.button.primary,
+button.primary,
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary {
+  color: #234567;
+  background-color: rgb(153, 204, 255); /* #33C3F0; */
+  border-color: #234567; /* #33C3F0; */
+}
+
+.button.primary:hover,
+button.primary:hover,
+input[type="submit"].primary:hover,
+input[type="reset"].primary:hover,
+input[type="button"].primary:hover,
+.button.primary:focus,
+button.primary:focus,
+input[type="submit"].primary:focus,
+input[type="reset"].primary:focus,
+input[type="button"].primary:focus {
+  color: #fff;
+  background-color: #1eaedb;
+  border-color: #1eaedb;
+}
+
 /* ---------------------------------------------
  Modal Forms
 ------------------------------------------------ */
@@ -268,9 +325,10 @@ code {
   margin: 0 0.2em;
   font-size: 90%;
   white-space: nowrap;
-  background: #f1f1f1;
-  border: 1px solid #e1e1e1;
+  background: #252525;
+  border: 1px solid #ababab;
   border-radius: 4px;
+  color: #ddd;
 }
 
 pre {

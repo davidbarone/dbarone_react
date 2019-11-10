@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CreatePost from "./Posts/CreatePost";
+import AuthService from "../services/AuthService";
+import { Redirect } from "react-router-dom";
 
 const AdminPage = props => {
   const [mode, setMode] = useState([]);
@@ -20,7 +22,7 @@ const AdminPage = props => {
   );
   const addPost = mode === "ADD_POST" && <CreatePost />;
 
-  return (
+  return AuthService.getUserRole() === "admin" ? (
     <>
       <h1>Admin</h1>
       <hr></hr>
@@ -28,6 +30,8 @@ const AdminPage = props => {
       {addPostButton}
       {addPost}
     </>
+  ) : (
+    <Redirect to="/login" />
   );
 };
 
