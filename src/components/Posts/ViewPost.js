@@ -64,7 +64,7 @@ class ViewPost extends React.Component {
       try {
         // most browsers
         script.appendChild(document.createTextNode(code));
-        //document.head.appendChild(script);
+        document.head.appendChild(script);
       } catch (e) {
         // option (b) for other browsers
         script.text = code;
