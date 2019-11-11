@@ -60,7 +60,7 @@ class PostForm extends React.Component {
               ref={this.titleField}
               defaultValue={post.title}
             ></input>
-            <label>Teaser:</label>
+            <label>Teaser (This section ONLY supports MARKDOWN):</label>
             <textarea
               className="full-width"
               rows="3"

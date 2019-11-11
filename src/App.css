@@ -348,10 +348,11 @@ pre > code {
 blockquote {
   border-left: 10px solid rgb(61, 79, 93);
   font-style: italic;
-  margin: 0.25em 0;
-  padding: 0.25em 60px;
+  margin: 1em 0;
+  padding: 1em 4em;
   line-height: 1.45;
   position: relative;
+  background: #252525;
 }
 
 blockquote:before {

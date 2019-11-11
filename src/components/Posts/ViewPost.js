@@ -25,7 +25,7 @@ class ViewPost extends React.Component {
     // All head contents must be nodes with src attributes.
     if (this.props.post.head) {
       const head = this.props.post.head.replace(
-        "https://api.dbarone.com",
+        /https:\/\/api.dbarone.com/g,
         process.env.REACT_APP_API_ROOT
       );
       // Have to convert head string to node
@@ -54,7 +54,7 @@ class ViewPost extends React.Component {
     // Wrap this in inline <script> block.
     if (this.props.post.code) {
       const code = this.props.post.code.replace(
-        "https://api.dbarone.com",
+        /https:\/\/api.dbarone.com/g,
         process.env.REACT_APP_API_ROOT
       );
       const script = document.createElement("script");
@@ -64,7 +64,7 @@ class ViewPost extends React.Component {
       try {
         // most browsers
         script.appendChild(document.createTextNode(code));
-        document.head.appendChild(script);
+        //document.head.appendChild(script);
       } catch (e) {
         // option (b) for other browsers
         script.text = code;
@@ -83,12 +83,12 @@ class ViewPost extends React.Component {
     }
     if (this.props.post.post_type === "MARKDOWN") {
       return marked(this.props.post.content).replace(
-        "https://api.dbarone.com",
+        /https:\/\/api.dbarone.com/g,
         process.env.REACT_APP_API_ROOT
       );
     } else {
       return this.props.post.content.replace(
-        "https://api.dbarone.com",
+        /https:\/\/api.dbarone.com/g,
         process.env.REACT_APP_API_ROOT
       );
     }
@@ -101,7 +101,7 @@ class ViewPost extends React.Component {
       <div ref={el => (this.div = el)}>
         <h2>{post.title}</h2>
         <div style={{ color: "#999", fontSize: "0.8em" }}>
-          By {post.updatedBy} on {moment(post.updatedDt).format("LLLL")}
+          By {post.updated_by} on {moment(post.published_dt).format("LLLL")}
           <span>
             <button onClick={this.handleEditPost}>Edit</button>
           </span>
