@@ -26,6 +26,7 @@ const ListPosts = props => {
 
   return (
     <>
+      <h1>Posts</h1>
       {posts.map(p => (
         <PostTeaser key={p.id} id={p.id} />
       ))}

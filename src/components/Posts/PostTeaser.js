@@ -3,7 +3,7 @@ import moment from "moment";
 import marked from "marked";
 
 const PostTeaser = ({ id }) => {
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState(null);
   const [hasError, setErrors] = useState(false);
 
   const teaser = post => {
@@ -27,13 +27,13 @@ const PostTeaser = ({ id }) => {
     fetchPost();
   }, [id]);
 
-  return (
+  return post ? (
     <>
-      <h4>
+      <h2>
         <a href={"/posts/" + post.id}>{post.title}</a>
-      </h4>
+      </h2>
       <div style={{ color: "#999", fontSize: "0.8em" }}>
-        By {post.updated_by} on {moment(post.published_dt).format("LLLL")}
+        By {post.updated_by} on {moment(post.published_dt).format("LL")}
       </div>
       <div
         style={{ marginTop: "6px" }}
@@ -42,6 +42,8 @@ const PostTeaser = ({ id }) => {
 
       <hr />
     </>
+  ) : (
+    <div />
   );
 };
 

@@ -51,8 +51,12 @@ class PostForm extends React.Component {
         <form>
           <fieldset>
             <legend>Edit / Create Post</legend>
-            <button onClick={this.handleSave}>Save</button>
-            <button onClick={onCancel}>Cancel</button>
+            <button class="button primary" onClick={this.handleSave}>
+              Save
+            </button>
+            <button class="button" onClick={onCancel}>
+              Cancel
+            </button>
             <label>Title:</label>
             <input
               className="full-width"

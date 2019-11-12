@@ -16,7 +16,9 @@ const AdminPage = props => {
 
   const addPostButton = mode !== "ADD_POST" && (
     <>
-      <button onClick={handleCreatePost}>Create</button>
+      <button class="button" onClick={handleCreatePost}>
+        Create
+      </button>
       <span>Create new post.</span>
     </>
   );

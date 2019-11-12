@@ -99,12 +99,14 @@ class ViewPost extends React.Component {
     this.componentDidMount();
     return (
       <div ref={el => (this.div = el)}>
-        <h2>{post.title}</h2>
+        <h1>{post.title}</h1>
         <div style={{ color: "#999", fontSize: "0.8em" }}>
-          By {post.updated_by} on {moment(post.published_dt).format("LLLL")}
-          <span>
-            <button onClick={this.handleEditPost}>Edit</button>
-          </span>
+          By {post.updated_by} on {moment(post.published_dt).format("LL")}
+          <div>
+            <button class="button" onClick={this.handleEditPost}>
+              Edit
+            </button>
+          </div>
         </div>
         <div
           style={{ marginTop: "6px" }}

@@ -26,7 +26,9 @@ const MainMenu = () => {
   return (
     <div>
       <Link to="/">
-        <button style={{ border: "none", background: "none" }}>Home</button>
+        <button style={{ border: "none", background: "none" }}>
+          David Barone - BI Developer
+        </button>
       </Link>
       <Link to="/posts">
         <button style={{ border: "none", background: "none" }}>Posts</button>
