@@ -51,7 +51,7 @@ class LoginPage extends React.Component {
     const { email, password, submitted, loading, error } = this.state;
     return (
       <div>
-        <h2>Login</h2>
+        <h1>Login</h1>
         <form name="login" onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>

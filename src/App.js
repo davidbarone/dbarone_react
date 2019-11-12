@@ -10,6 +10,7 @@ import SinglePost from "./components/Posts/SinglePost";
 import LoginPage from "./components/Login/LoginPage";
 import LogoutPage from "./components/Login/LogoutPage";
 import UserInfo from "./components/Login/UserInfo";
+import SignUpPage from "./components/Login/SignUpPage";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -26,8 +27,16 @@ const MainMenu = () => {
   return (
     <div>
       <Link to="/">
-        <button style={{ border: "none", background: "none" }}>
-          David Barone - BI Developer
+        <button
+          style={{
+            fontFamily: "'Kalam', cursive",
+            fontSize: "20px",
+            fontWeight: 400,
+            border: "none",
+            background: "none"
+          }}
+        >
+          David Barone-BI Developer
         </button>
       </Link>
       <Link to="/posts">
@@ -39,7 +48,7 @@ const MainMenu = () => {
       <Link to="/admin">
         <button style={{ border: "none", background: "none" }}>Admin</button>
       </Link>
-      <Link to="/contact">
+      <Link to="/signup">
         <button style={{ border: "none", background: "none" }}>Signup</button>
       </Link>
     </div>
@@ -74,9 +83,12 @@ function App() {
             <Route exact path="/admin" component={AdminPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
+            <Route exact path="/signup" component={SignUpPage} />
           </div>
         </main>
-        <footer>XXX</footer>
+        <footer>
+          <div>Copyright (c) David Barone 2019</div>
+        </footer>
       </div>
     </Router>
   );

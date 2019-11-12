@@ -38,6 +38,7 @@ main {
   margin-top: 60px;
   flex: auto;
   padding: 0px;
+  margin-bottom: 10px;
 }
 
 header a {
@@ -62,10 +63,11 @@ header a button:hover {
 }
 
 footer {
-  background: #eee;
+  background: #252525;
   min-height: 40px;
+  line-height: 40px;
   width: 100%;
-  font-size: x-small;
+  font-size: small;
   text-align: center;
   border-top: 1px solid gray;
   z-index: 999;
