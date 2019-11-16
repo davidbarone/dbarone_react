@@ -6,7 +6,7 @@ const LogoutPage = () => {
   useEffect(() => AuthService.logout());
   return (
     <>
-      <h4>Logout</h4>
+      <h1>Logout</h1>
       <div>
         You have successfully logged out of this site. Click{" "}
         <Link to="/">Here</Link> to go back to the home page.

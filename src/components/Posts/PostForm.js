@@ -48,6 +48,7 @@ class PostForm extends React.Component {
 
     return (
       <>
+        <h1>Edit Post</h1>
         <form>
           <fieldset>
             <legend>Edit / Create Post</legend>
@@ -77,7 +78,7 @@ class PostForm extends React.Component {
             </label>
             <textarea
               className="full-width"
-              rows="8"
+              rows="20"
               ref={this.contentField}
               defaultValue={post.content}
             ></textarea>
@@ -100,7 +101,7 @@ class PostForm extends React.Component {
             </label>
             <textarea
               className="full-width"
-              rows="8"
+              rows="20"
               ref={this.codeField}
               defaultValue={post.code}
               placeholder="const hello_world = 'hello world!';
@@ -109,7 +110,7 @@ alert(hello_world);"
             <label>Style:</label>
             <textarea
               className="full-width"
-              rows="8"
+              rows="10"
               ref={this.styleField}
               defaultValue={post.style}
             ></textarea>

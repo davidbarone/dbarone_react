@@ -14,6 +14,13 @@ div.app {
   background: #1e1e1e;
 }
 
+body,
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
 body {
   color: #ddd;
   font-size: 16px;
@@ -22,6 +29,7 @@ body {
 div.app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -32,13 +40,23 @@ header {
   width: 100%;
   background: #252525;
   border-bottom: 1px solid #383838;
+  z-index: 9999;
+}
+
+.navbar {
+  background: #252525;
+  border-right: 1px solid #383838;
+  width: 320px;
+  max-width: 320px;
+  height: 100%;
 }
 
 main {
   margin-top: 60px;
   flex: auto;
   padding: 0px;
-  margin-bottom: 10px;
+  flex: 1;
+  padding-bottom: 1em;
 }
 
 header a {
@@ -56,10 +74,30 @@ header a button {
 
 a {
   color: #e0b24d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 header a button:hover {
   border-bottom: 2px solid #e0b24d !important;
+}
+
+.navbar a {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ddd;
+  text-decoration: none;
+  margin: 1em 0em;
+  text-indent: 0.5em;
+  border-left: 3px solid transparent !important;
+}
+
+.navbar a:hover {
+  border-left: 3px solid #e0b24d !important;
 }
 
 footer {
@@ -69,7 +107,7 @@ footer {
   width: 100%;
   font-size: small;
   text-align: center;
-  border-top: 1px solid gray;
+  border-top: 1px solid #383838;
   z-index: 999;
 }
 
@@ -211,7 +249,7 @@ form input[type="checkbox"] + * {
   display: inline-block;
   height: 30px;
   padding: 0 20px;
-  color: #222;
+  color: #ddd;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -220,9 +258,9 @@ form input[type="checkbox"] + * {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: #ddd;
+  background-color: #333;
   border-radius: 4px;
-  border: 1px solid #222;
+  border: 1px solid #ddd;
   cursor: pointer;
   box-sizing: border-box;
   margin: 1em 1em 1em 0em;
@@ -231,8 +269,7 @@ form input[type="checkbox"] + * {
 .button:hover,
 .button:focus {
   color: #222;
-  background-color: #666;
-  border-color: #888;
+  background-color: #ccc;
   outline: 0;
 }
 

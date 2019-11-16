@@ -6,7 +6,7 @@ const HomePage = props => {
     <>
       <section
         style={{
-          padding: "80px"
+          padding: "80px 0px"
         }}
       >
         <div style={{ margin: "auto", width: "1280px" }}>

@@ -6,7 +6,8 @@ class SinglePost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      post: {},
+      post: null,
+      relations: null,
       mode: "VIEW"
     };
   }
@@ -16,6 +17,12 @@ class SinglePost extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({ post: data });
+      });
+
+    fetch(`${process.env.REACT_APP_API_ROOT}/posts/${this.props.id}/relations`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ relations: data });
       });
   }
 
@@ -30,13 +37,16 @@ class SinglePost extends React.Component {
     if (this.state.mode === "EDIT")
       postComponent = (
         <>
-          <h1>Edit Post</h1>
           <EditPost post={this.state.post} setMode={this.setMode} />
         </>
       );
     else if (this.state.mode === "VIEW")
       postComponent = (
-        <ViewPost post={this.state.post} setMode={this.setMode} />
+        <ViewPost
+          post={this.state.post}
+          relations={this.state.relations}
+          setMode={this.setMode}
+        />
       );
 
     return postComponent;

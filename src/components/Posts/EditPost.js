@@ -28,7 +28,9 @@ class EditPost extends React.Component {
     const { post, setMode } = this.props;
 
     return AuthService.getUserRole() === "admin" ? (
-      <PostForm post={post} onSave={this.handleSave} />
+      <div style={{ padding: "0% 10%" }}>
+        <PostForm post={post} onSave={this.handleSave} />
+      </div>
     ) : (
       <Redirect to="/login" />
     );

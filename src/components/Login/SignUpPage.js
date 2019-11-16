@@ -5,7 +5,7 @@ class SignUpPage extends React.Component {
     return (
       <div>
         <h1>Sign Up</h1>
-        Nothing to do here yet...
+        There's currently nothing to do here...
       </div>
     );
   }

@@ -20,8 +20,16 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
-
-library.add(fab, faGithub, faLinkedin, faEnvelopeSquare);
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+library.add(
+  fab,
+  faGithub,
+  faLinkedin,
+  faEnvelopeSquare,
+  faTrashAlt,
+  faDownload
+);
 
 const MainMenu = () => {
   return (
@@ -73,11 +81,11 @@ function App() {
             <UserInfo />
           </span>
         </header>
-        <main>
-          <div style={{ width: "1366px", margin: "0px auto" }}>
+        <main className="main">
+          <Route path="/posts/:id" component={ViewPostX} />
+          <div style={{ padding: "0% 10%" }}>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/posts" component={ListPosts} />
-            <Route path="/posts/:id" component={ViewPostX} />
             <Route exact path="/search" component={SearchPage} />
             <Route exact path="/account" component={AccountManagement} />
             <Route exact path="/admin" component={AdminPage} />
