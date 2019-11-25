@@ -4,6 +4,14 @@ import marked from "marked";
 import PostRelations from "./PostRelations";
 
 class ViewPost extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      codeLoaded: false,
+      headLoaded: false
+    };
+  }
+
   loadScriptSync(script) {
     return new Promise((resolve, reject) => {
       script.onload = function() {
@@ -25,7 +33,7 @@ class ViewPost extends React.Component {
 
       // Add head if any
       // All head contents must be nodes with src attributes.
-      if (this.props.post.head) {
+      if (this.props.post.head && !this.state.headLoaded) {
         const head = this.props.post.head.replace(
           /https:\/\/api.dbarone.com/g,
           process.env.REACT_APP_API_ROOT
@@ -50,11 +58,12 @@ class ViewPost extends React.Component {
         }
         // Change this to div.childNodes to support multiple top-level nodes
         div.childNodes.forEach(child => {});
+        this.setState({ headLoaded: true });
       }
 
       // Add code if any
       // Wrap this in inline <script> block.
-      if (this.props.post.code) {
+      if (this.props.post.code && !this.state.codeLoaded) {
         const code = this.props.post.code.replace(
           /https:\/\/api.dbarone.com/g,
           process.env.REACT_APP_API_ROOT
@@ -62,16 +71,17 @@ class ViewPost extends React.Component {
         const script = document.createElement("script");
         script.type = "text/javascript";
         script.async = false;
-
         try {
           // most browsers
           script.appendChild(document.createTextNode(code));
           document.head.appendChild(script);
         } catch (e) {
           // option (b) for other browsers
+          alert("error");
           script.text = code;
           document.head.appendChild(script);
         }
+        this.setState({ codeLoaded: true });
       }
     }
   }

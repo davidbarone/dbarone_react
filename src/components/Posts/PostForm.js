@@ -52,10 +52,10 @@ class PostForm extends React.Component {
         <form>
           <fieldset>
             <legend>Edit / Create Post</legend>
-            <button class="button primary" onClick={this.handleSave}>
+            <button className="button primary" onClick={this.handleSave}>
               Save
             </button>
-            <button class="button" onClick={onCancel}>
+            <button className="button" onClick={onCancel}>
               Cancel
             </button>
             <label>Title:</label>
