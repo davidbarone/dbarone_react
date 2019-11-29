@@ -12,14 +12,12 @@ const HomePage = props => {
         <div style={{ margin: "auto", width: "1024px", fontSize: "x-large" }}>
           <blockquote cite="https://www.dbarone.com/">
             <p>
-              Ordinary people always ask me 'How have you made the Business
-              Intelligence community a better place?'. I tell them 'I'm good
-              with colors. I use a lot of them in my charts. Accountants seem to
-              like me because I compliment them on their Excel skills. I love
-              working with complex organisations because German ERP software
-              brings the best out in me. If you talk about Big Data, I'll smile
-              at you like I pretend to know what you're talking about, but above
-              all, I've put the humanity (and sexuality) back into BI.
+              People say "David, how have you made the Business Intelligence
+              community a better place?".
+            </p>
+            <p>
+              I tell them "I'm good with colors. I use a lot of them in my
+              charts".
             </p>
             <cite>
               <a href="https://www.dbarone.com">David Barone</a>
