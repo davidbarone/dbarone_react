@@ -43,6 +43,7 @@ class SinglePost extends React.Component {
     else if (this.state.mode === "VIEW")
       postComponent = (
         <ViewPost
+          key={id}
           post={this.state.post}
           relations={this.state.relations}
           setMode={this.setMode}

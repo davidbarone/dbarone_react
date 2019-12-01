@@ -12,8 +12,8 @@ const HomePage = props => {
         <div style={{ margin: "auto", width: "1024px", fontSize: "x-large" }}>
           <blockquote cite="https://www.dbarone.com/">
             <p>
-              People say "David, how have you made the Business Intelligence
-              community a better place?".
+              People say "David, what's your greatest contribution to Business
+              Intelligence?"
             </p>
             <p>
               I tell them "I'm good with colors. I use a lot of them in my

@@ -2,17 +2,10 @@ import React from "react";
 import moment from "moment";
 import marked from "marked";
 import PostRelations from "./PostRelations";
+import { defaultCoreCipherList } from "constants";
 
 class ViewPost extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      codeLoaded: false,
-      headLoaded: false
-    };
-  }
-
-  loadScriptSync(script) {
+  static async loadScriptSync(script) {
     return new Promise((resolve, reject) => {
       script.onload = function() {
         resolve({ script });
@@ -22,66 +15,61 @@ class ViewPost extends React.Component {
     });
   }
 
-  async componentDidMount() {
+  static async loadCode(post) {
     // Add inline style if set
-    if (this.props.post) {
-      if (this.props.post.style) {
-        const style = document.createElement("style");
-        style.innerText = this.props.post.style;
-        document.head.appendChild(style);
-      }
+    if (post.style) {
+      const style = document.createElement("style");
+      style.innerText = post.style;
+      document.head.appendChild(style);
+    }
 
-      // Add head if any
-      // All head contents must be nodes with src attributes.
-      if (this.props.post.head && !this.state.headLoaded) {
-        const head = this.props.post.head.replace(
-          /https:\/\/api.dbarone.com/g,
-          process.env.REACT_APP_API_ROOT
-        );
-        // Have to convert head string to node
-        var div = document.createElement("div");
-        div.innerHTML = head;
+    // Add head if any
+    // All head contents must be nodes with src attributes.
+    if (post.head) {
+      const head = post.head.replace(
+        /https:\/\/api.dbarone.com/g,
+        process.env.REACT_APP_API_ROOT
+      );
+      // Have to convert head string to node
+      var div = document.createElement("div");
+      div.innerHTML = head;
+      for (let i = 0; i < div.childNodes.length; i++) {
+        const child = div.childNodes[i];
 
-        for (let i = 0; i < div.childNodes.length; i++) {
-          const child = div.childNodes[i];
-
-          if (child && child.nodeName === "SCRIPT" && child.src !== "") {
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.src = child.src;
-            s.async = false;
-            //document.head.appendChild(s);
-            await this.loadScriptSync(s);
-          } else {
-            eval(child.innerHTML);
-          }
+        if (child && child.nodeName === "SCRIPT" && child.src !== "") {
+          var s = document.createElement("script");
+          s.type = "text/javascript";
+          s.src = child.src;
+          s.async = false;
+          //document.head.appendChild(s);
+          await ViewPost.loadScriptSync(s);
+        } else {
+          eval(child.innerHTML);
         }
-        // Change this to div.childNodes to support multiple top-level nodes
-        div.childNodes.forEach(child => {});
-        this.setState({ headLoaded: true });
       }
+      // Change this to div.childNodes to support multiple top-level nodes
+      div.childNodes.forEach(child => {});
+    }
 
-      // Add code if any
-      // Wrap this in inline <script> block.
-      if (this.props.post.code && !this.state.codeLoaded) {
-        const code = this.props.post.code.replace(
-          /https:\/\/api.dbarone.com/g,
-          process.env.REACT_APP_API_ROOT
-        );
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.async = false;
-        try {
-          // most browsers
-          script.appendChild(document.createTextNode(code));
-          document.head.appendChild(script);
-        } catch (e) {
-          // option (b) for other browsers
-          alert("error");
-          script.text = code;
-          document.head.appendChild(script);
-        }
-        this.setState({ codeLoaded: true });
+    // Add code if any
+    // Wrap this in inline <script> block.
+    if (post.code) {
+      const code = post.code.replace(
+        /https:\/\/api.dbarone.com/g,
+        process.env.REACT_APP_API_ROOT
+      );
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = false;
+      try {
+        // most browsers
+        script.appendChild(document.createTextNode(code));
+        document.head.appendChild(script);
+      } catch (e) {
+        // option (b) for other browsers
+        alert("error");
+        script.text = code;
+        document.head.appendChild(script);
       }
     }
   }
@@ -108,7 +96,7 @@ class ViewPost extends React.Component {
   }
 
   navigation(relations) {
-    return relations.hasRelations ? (
+    return relations && relations.hasRelations ? (
       <div className="navbar">
         <PostRelations relations={relations} />
       </div>
@@ -139,16 +127,18 @@ class ViewPost extends React.Component {
   }
 
   render() {
-    const { post, relations, setMode } = this.props;
-    this.componentDidMount();
-    return post && relations ? (
-      <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
-        {this.navigation(relations)}
-        {this.post(post)}
-      </div>
-    ) : (
-      <></>
-    );
+    const { post, relations } = this.props;
+    if (post && relations) {
+      ViewPost.loadCode(post);
+      return (
+        <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
+          {this.navigation(relations)}
+          {this.post(post)}
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 }
 
